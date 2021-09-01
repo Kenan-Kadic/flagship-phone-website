@@ -29,17 +29,14 @@
         <div class="button-area">
 
             <a th:href="@{'~/phones/edit/' + ${phone.id}}"><button class="btn btn-primary btn-xl">Edit</button></a>
-
             <form action="#" th:action="@{'~/phones/delete/' + ${phone.id}}" th:method="delete" >
 
                 <input type="hidden" name="_method" value="delete" />
                 <button class="btn btn-primary btn-xl"type="submit">Delete</button>
 
             </form>
-
         </div>
     </section>
-
     </div>
 </div>
 

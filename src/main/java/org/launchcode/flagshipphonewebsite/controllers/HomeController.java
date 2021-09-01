@@ -42,8 +42,8 @@ public class HomeController {
     }
 
     @PostMapping("admin")
-    public String processAddPhoneForm(@ModelAttribute @Valid Phone newPhone, Brand newBrand,
-                                      Errors errors, Model model, @RequestParam int brandId) {
+    public String processAddPhoneForm(@ModelAttribute @Valid Phone newPhone,
+                                      Errors errors, Model model,Brand newBrand, @RequestParam int brandId) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Phone");

@@ -14,6 +14,7 @@ public abstract class AbstractEntity {
     @GeneratedValue
     private int id;
 
+    @Size(max=50)
     @NotBlank(message="The field name is required")
     private String name;
 
