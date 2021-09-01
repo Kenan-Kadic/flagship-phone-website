@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <form th:action="@{/search/results}" method = "post">
+        <h2>Search by:</h2>
+
+        <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+
+        </p>
+
+        <p>
+            <label for="searchTerm">Keyword:</label>
+            <input type="text" name="searchTerm" id="searchTerm" />
+        </p>
+
+        <input type="submit" value="Search" />
+    </form>
+
+    <hr/>
+
+<table class="phone-listing">
+    <tr th:each="phone : ${phones}">
+            <td>
+                <br></br>
+                <br></br>
+                <p>
+                    Brand Name: 
+                    <a th:href="@{'/view/' + ${phone.id}}" th:text="${phone.brand}" th:remove="tag"></a>
+                </p>
+                <p>
+                    Model:
+                    <a th:href="@{'/view/' + ${phone.id}}" th:text="${phone.model}" th:remove="tag"></a>
+                </p>
+                <p>
+                    Retail Price: $
+                    <a th:href="@{'/view/' + ${phone.id}}" th:text="${phone.price}" th:remove="tag"></a>
+                </p>
+                <p>
+                    Details:  
+                    <a th:href="@{'/view/' + ${phone.id}}">Click here to see more details</a>
+                </p>
+                
+            </td>
+            <td>
+                <div class="rightImage">
+                    <img th:src="${'data:image/png;base64,' + phone.image}"  alt="image" width="250" th:if= "${phone.image != null}"/>
+                    <img th:src= "@{/image/imagecomingsoon.png}" width="250" th:if= "${phone.image == null}"/>
+            </td>
+            </div>
+    </tr>
+</table>
+</div>
+</body>
+</html>

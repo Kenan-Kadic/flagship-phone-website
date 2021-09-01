@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h2>Google Flagship Phones</h2>
+
+    <p th:each="phone : ${phones}">
+        <a th:href="@{'/view/' + ${phone.id}}" >
+            <img th:src="${'data:image/png;base64,' + phone.image}" width="250" th:text="${phone.model}" th:if= "${phone.image != null}"/>
+            <img th:src= "@{/image/imagecomingsoon.png}" width="250" th:text="${phone.model}" th:if= "${phone.image == null}"/>
+        </a>
+    </p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<div th:replace="fragments :: page-header"></div>
+<div class="container body-content">
+
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+
+    <table class="phone-listing">
+        <tr th:each="phone : ${phones}">
+            <td>
+               <p>
+                    Brand Name: 
+                    <a th:text="${phone.brand.name}" th:remove="tag"></a>
+                </p>
+                <p>
+                    Model Name:
+                    <a th:text="${phone.name}" th:remove="tag"></a>
+                </p>
+                <p>
+                   Retail Price: $
+                    <a th:text="${phone.price}" th:remove="tag"></a>
+                </p>
+                <p>
+                    Details:  
+                    <a th:href="@{'/phones/view/' + ${phone.id}}">Click here to see more details</a>
+                </p>
+            </td> 
+            <td>
+                <div class="rightImage">
+                    <img th:src="${'data:image/png;base64,' + phone.image}"  alt="image" width="250" th:if= "${phone.image != null}"/>
+                    <img th:src= "@{/image/imagecomingsoon.png}" width="250" th:if= "${phone.image == null}"/>
+                </div>   
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

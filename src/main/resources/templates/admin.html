@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<h1>Add Phone</h1>
+
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label th:for="brand">Brand</label>
+        <select name="brandId">
+            <option th:each="brand : ${brands}"
+                    th:text="${brand.name}"
+                    th:value="${brand.id}"></option>
+        </select>
+        <a th:href="@{'/brands/add'}">Add Brands</a>
+    </div>
+
+    <div class="form-group">
+        <label th:for="name">Model Name</label>
+        <input class="form-control" th:field="${phone.name}" />
+        <span th:errors="${phone.name}" class="error"></span>
+
+        <label th:for="name">Retail Price</label>
+        <input class="form-control" th:field="${phone.price}" />
+        <span th:errors="${phone.price}" class="error"></span>
+
+        <label th:for="name">Screen Size</label>
+        <input class="form-control" th:field="${phone.size}" />
+        <span th:errors="${phone.size}" class="error"></span>
+
+        <label th:for="name">Colors</label>
+        <input class="form-control" th:field="${phone.colors}" />
+        <span th:errors="${phone.colors}" class="error"></span>
+
+        <label th:for="name">Build</label>
+        <input class="form-control" th:field="${phone.build}" />
+        <span th:errors="${phone.build}" class="error"></span>
+
+        <label th:for="name">Water Resistance</label>
+        <input class="form-control" th:field="${phone.resistance}" />
+        <span th:errors="${phone.build}" class="error"></span>
+
+        <label th:for="name">Processor</label>
+        <input class="form-control" th:field="${phone.processor}" />
+        <span th:errors="${phone.processor}" class="error"></span>
+
+        <label th:for="name">Operating System</label>
+        <input class="form-control" th:field="${phone.os}" />
+        <span th:errors="${phone.os}" class="error"></span>
+
+        <label th:for="name">RAM</label>
+        <input class="form-control" th:field="${phone.ram}" />
+        <span th:errors="${phone.ram}" class="error"></span>
+
+        <label th:for="name">Front Cameras</label>
+        <input class="form-control" th:field="${phone.frontCameras}" />
+        <span th:errors="${phone.frontCameras}" class="error"></span>
+
+        <label th:for="name">Rear Cameras</label>
+        <input class="form-control" th:field="${phone.rearCameras}" />
+        <span th:errors="${phone.rearCameras}" class="error"></span>
+
+        <label th:for="name">Battery Size:</label>
+        <input class="form-control" th:field="${phone.battery}" />
+        <span th:errors="${phone.battery}" class="error"></span>
+
+        <label th:for="name">Storage Options:</label>
+        <input class="form-control" th:field="${phone.storage}" />
+        <span th:errors="${phone.storage}" class="error"></span>
+
+        <label th:for="name">Dual Speakers:</label>
+        <input class="form-control" th:field="${phone.speakers}" />
+        <span th:errors="${phone.speakers}" class="error"></span>
+    </div>
+
+    <div class="buffer col-12">
+        <section class="text-center">
+        <input class="btn btn-primary btn-xl" type="submit" value="Add Phone"/>
+        </section>
+    </div>
+</form>
+
+</body>
+</html>

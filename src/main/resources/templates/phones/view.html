@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div class="container-row body-content">
+<nav th:replace="fragments :: page-header"></nav>
+    <div class="text">
+
+<h1 th:text="${'Brand Name: ' + #strings.capitalize(phone.brand.name)}">Default Title</h1>
+    <br>
+    <p th:text="${'Model Name: ' + phone.name}"></p>
+    <p th:text="${'Retail Price: $ ' + phone.price}"></p>
+    <p th:text="${'Screen Size: ' + phone.size}"></p>
+    <p th:text="${'Colors: ' + phone.colors}"></p>
+    <p th:text="${'Build: ' + phone.build}"></p>
+    <p th:text="${'Water Resistance: ' + phone.resistance}"></p>
+    <p th:text="${'Processor: ' + phone.processor}"></p>
+    <p th:text="${'Operating System: ' + phone.os}"></p>
+    <p th:text="${'RAM: ' + phone.ram}"></p>
+    <p th:text="${'Front Cameras: ' + phone.frontCameras}"></p>
+    <p th:text="${'Rear Cameras: ' + phone.rearCameras}"></p>
+    <p th:text="${'Battery Size: ' + phone.battery}"></p>
+    <p th:text="${'Storage Options: ' + phone.storage}"></p>
+    <p th:text="${'Dual Speakers: ' + phone.speakers}"></p>
+
+<div class="buffer col-12">
+    <section class="text-center">
+        <div class="button-area">
+
+            <a th:href="@{'~/phones/edit/' + ${phone.id}}"><button class="btn btn-primary btn-xl">Edit</button></a>
+
+            <form action="#" th:action="@{'~/phones/delete/' + ${phone.id}}" th:method="delete" >
+
+                <input type="hidden" name="_method" value="delete" />
+                <button class="btn btn-primary btn-xl"type="submit">Delete</button>
+
+            </form>
+
+        </div>
+    </section>
+
+    </div>
+</div>
+
+<div class="image">
+    <img th:src="${'data:image/png;base64,' + phone.image}"  alt="image" width="500" th:if= "${phone.image != null}"/>
+    <img th:src= "@{/image/imagecomingsoon.png}" width="500" th:if= "${phone.image == null}"/>
+</div>
+</div>
+
+</body>
+</html>

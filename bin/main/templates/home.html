@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header">
+</div>
+    <br></br>
+    <div class="leftImage">
+        <a th:href="@{/apple}">
+            <img alt="Apple Flagship Phones" title="Apple Flagship Phones" width="500"
+            th:src="@{/image/iphones.png}" />
+        </a>
+    </div>    
+    <div class="rightImage">
+        <a th:href="@{/samsung}">
+            <img alt="Samsung Flagship Phones" title="Samsung Flagship Phones" width="500"
+            th:src="@{/image/samsungphones.png}" />
+        </a>
+    </div>
+    <div class="leftImage">
+        <a th:href="@{/lg}">
+            <img alt="LG Flagship Phones" title="LG Flagship Phones" width="500"
+            th:src="@{/image/lgphones.png}" />
+        </a>
+    </div>  
+    <div class="rightImage">
+        <a th:href="@{/oneplus}">
+            <img alt="OnePlus Flagship Phones" title="OnePlus Flagship Phones" width="500"
+            th:src="@{/image/oneplusphones.png}" />
+        </a>
+    </div>
+    <div class="rightImage">
+        <a th:href="@{/motorola}">
+            <img alt="Motorola Flagship Phones" title="Motorola Flagship Phones" width="500"
+            th:src="@{/image/motorolaphones.png}" />
+        </a>
+    </div>
+    <div class="leftImage">
+        <a th:href="@{/google}">
+            <img alt="Google Flagship Phones" title="Google Flagship Phones" width="500"
+            th:src="@{/image/googlephones.png}" />
+        </a>
+    </div>
+</body>
+</html>

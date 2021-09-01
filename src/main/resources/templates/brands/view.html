@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+        <h1 th:text="${#strings.capitalize(brand) + ' Flagship Phones'}">Default Title</h1>
+
+        <p th:each="phone : ${phones}">
+            <a th:href="@{'~/phones/view/' + ${phone.id}}" >
+
+                <img th:src="${'data:image/png;base64,' + phone.image}" width="250" th:text="${phone.name}" th:if= "${phone.image != null}"/>
+                <img th:src= "@{/image/imagecomingsoon.png}" width="250" th:text="${phone.name}" th:if= "${phone.image == null}"/>
+
+            </a>
+        </p>
+</div>
+</body>
+</html>
+

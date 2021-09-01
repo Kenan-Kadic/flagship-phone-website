@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div class="container-row body-content">
+    <div class="text">
+
+        <h1 th:text="${'Brand Name: ' + #strings.capitalize(phone.brand.name)}">Default Title</h1>
+        <nav th:replace="fragments :: page-header"></nav>
+        <br>
+
+        <form th:action="@{'~/phones/edit/' + ${phone.id}}" method="post" style="max-width:600px;">
+            <input type="hidden" name="_method" value="put"/>
+
+            <div class="form-group">
+                <label th:for="name">Model Name: </label>
+                <input class="form-control" th:field="${phone.name}"/>
+
+                <label th:for="price">Retail Price: </label>
+                <input class="form-control" th:field="${phone.price}"/>
+
+                <label th:for="size">Screen Size: </label>
+                <input class="form-control" th:field="${phone.size}"/>
+
+                <label th:for="colors">Colors: </label>
+                <input class="form-control" th:field="${phone.colors}"/>
+
+                <label th:for="build">Build: </label>
+                <input class="form-control" th:field="${phone.build}"/>
+
+                <label th:for="resistance">Water Resistance: </label>
+                <input class="form-control" th:field="${phone.resistance}"/>
+
+                <label th:for="processor">Processor: </label>
+                <input class="form-control" th:field="${phone.processor}"/>
+
+                <label th:for="os">Operating System: </label>
+                <input class="form-control" th:field="${phone.os}"/>
+
+                <label th:for="ram">Ram: </label>
+                <input class="form-control" th:field="${phone.ram}"/>
+
+                <label th:for="frontCameras">Front Cameras: </label>
+                <input class="form-control" th:field="${phone.frontCameras}"/>
+
+                <label th:for="rearCameras">Rear Cameras: </label>
+                <input class="form-control" th:field="${phone.rearCameras}"/>
+
+                <label th:for="battery">Battery: </label>
+                <input class="form-control" th:field="${phone.battery}"/>
+
+                <label th:for="storage">Storage: </label>
+                <input class="form-control" th:field="${phone.storage}"/>
+
+                <label th:for="speakers">Speakers: </label>
+                <input class="form-control" th:field="${phone.speakers}"/>
+            </div>
+
+            <div class="text-center col-12 button-area">
+            <input class="btn btn-primary btn-xl" type="submit" value="Save"/>
+            <a th:href="@{'~/phones/view/' + ${phone.id}}"><button type="button" class="btn btn-primary btn-xl">Cancel</button></a>
+            </div>
+        </form>
+    </div>
+
+    <div class="image">
+        <br>
+        <img th:src="${'data:image/png;base64,' + phone.image}"  alt="image" width="500" th:if= "${phone.image != null}"/>
+        <img th:src= "@{/image/imagecomingsoon.png}" width="500" th:if= "${phone.image == null}"/>
+    </div>
+</div>
+
+</body>
+</html>
+
+

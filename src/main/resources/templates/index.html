@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<br>
+
+<div th:replace="fragments :: page-header">
+</div>
+<br>
+<div class="container-row body-content">
+    <div class="column">
+        <p th:each="brand : ${brands}">
+            <a th:href="@{'/brands/view/' + ${brand.id}}" >
+                    <img th:src="${'data:image/png;base64,' + brand.image}" width="500" th:if= "${brand.image != null}"/>
+                    <img th:src= "@{/image/imagecomingsoon.png}" width="500" th:text="${brand.name}" th:if= "${brand.image == null}"/>
+            </a>
+        </p>
+    </div>
+</div>
+</body>
+</html>

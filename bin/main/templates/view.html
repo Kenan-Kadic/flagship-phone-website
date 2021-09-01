@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+
+<h1 th:text="${'Brand Name: ' + #strings.capitalize(phone.brand)}">Default Title</h1>
+<nav th:replace="fragments :: page-header"></nav>
+<br></br>
+<div class="phone-listing">
+<div class="text">
+    <p th:text="${'Brand Name: ' + #strings.capitalize(phone.brand)}"></p>
+    <p th:text="${'Model: ' + phone.model}"></p>
+    <p th:text="${'Retail Price: $ ' + phone.price}"></p>
+    <p th:text="${'Screen Size: ' + phone.size}"></p>
+    <p th:text="${'Colors: ' + phone.colors}"></p>
+    <p th:text="${'Build: ' + phone.build}"></p>
+    <p th:text="${'Water Resistance: ' + phone.resistance}"></p>
+    <p th:text="${'Processor: ' + phone.processor}"></p>
+    <p th:text="${'Operating System: ' + phone.os}"></p>
+    <p th:text="${'RAM: ' + phone.ram}"></p>
+    <p th:text="${'Camera: ' + phone.camera}"></p>
+    <p th:text="${'Battery Size: ' + phone.battery}"></p>
+    <p th:text="${'Storage Options: ' + phone.storage}"></p>
+    <p th:text="${'Dual Speakers: ' + phone.speakers}"></p>
+</div>
+<div class="image">
+    <br></br>
+    <img th:src="${'data:image/png;base64,' + phone.image}"  alt="image" width="500" th:if= "${phone.image != null}"/>
+    <img th:src= "@{/image/imagecomingsoon.png}" width="500" th:if= "${phone.image == null}"/>
+</div>
+</div>
+</body>
+</html>

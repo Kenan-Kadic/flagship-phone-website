@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h2>Brands</h2>
+    <ul>
+        <li th:each="brand : ${brands}">
+            <a th:href="@{'/brands/view/' + ${brand.id}}" th:text="${brand.name}"></a>
+        </li>
+    </ul>
+    <a th:href="@{'/brands/add'}">Add Brands</a>
+
+</div>
+
+</body>
+</html>
