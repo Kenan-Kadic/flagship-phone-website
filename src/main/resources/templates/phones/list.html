@@ -19,24 +19,28 @@
     </tr>
     <tr>
         <td>
-            <a th:href="@{/phones/list/phones(column='All',value='View All')}">View All</a>
+            <ul class="moveLeft">
+                <li>
+                    <a th:href="@{/phones/list/phones(column='All',value='View All')}">View All</a>
+                </li>
+            </ul>
         </td>
         <td>
-            <ul>
+            <ul class="moveLeft">
                 <li th:each="brand : ${brands}">
                     <a th:href="@{/phones/list/phones(column=brand,value=${brand.name})}" th:text="${brand.name}"></a>
                 </li>
             </ul>
         </td>
         <td>
-            <ul>
+            <ul class="moveLeft">
                 <li th:each="phone : ${phones}">
                     <a th:href="@{/phones/list/phones(column=name,value=${phone.name})}" th:text="${phone.name}"></a>
                 </li>
             </ul>
         </td>
         <td>
-            <ul>
+            <ul class="moveLeft">
                 <li th:each="phone : ${phones}">
                     <a th:href="@{/phones/list/phones(column=price,value=${phone.price})}" th:text="${'$ ' + phone.price}">></a>
                 </li>

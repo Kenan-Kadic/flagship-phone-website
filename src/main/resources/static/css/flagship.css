@@ -132,3 +132,7 @@ align-items: flex-start;
 .margin {
 margin-top: 70px;
 }
+
+.moveLeft {
+padding: 10px;
+}
