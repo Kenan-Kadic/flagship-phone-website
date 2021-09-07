@@ -53,16 +53,17 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         }
         else if ((request.getRequestURI().startsWith("/admin")) && (!user.getUsertype().equals("admin"))) {
 
-            // adding sound to JOptionPane warning message
+            // Adding sound to warning message
             final Runnable SOUND = (Runnable)Toolkit.getDefaultToolkit().getDesktopProperty
                     ("win.sound.default");
             if(SOUND != null)SOUND.run();
 
-            // making the warning message show up always on top of all other windows
+            // Making the warning message show up always on top of all other windows
             final JDialog dialog = new JDialog();
             dialog.setAlwaysOnTop(true);
 
-            JOptionPane.showMessageDialog(null, "Please log in as Administrator to view this page", "Admin needed!", JOptionPane.WARNING_MESSAGE);
+            // The warning message that shows up to regular users who want to access Admin page
+            JOptionPane.showMessageDialog(dialog, "Please log in as Administrator to view this page", "Admin needed!", JOptionPane.WARNING_MESSAGE);
             response.sendRedirect(request.getContextPath());
             return false;
         }
