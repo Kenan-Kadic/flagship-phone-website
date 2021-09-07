@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.awt.*;
 import javax.swing.JOptionPane;
 
 public class AuthenticationFilter extends HandlerInterceptorAdapter {
@@ -50,8 +51,13 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
             return false;
         }
         else if ((request.getRequestURI().startsWith("/admin")) && (!user.getUsertype().equals("admin"))) {
+
+            final Runnable SOUND = (Runnable)Toolkit.getDefaultToolkit().getDesktopProperty
+                    ("win.sound.default");
+            if(SOUND != null)SOUND.run();
+
             JOptionPane.showMessageDialog(null, "Please log in as Administrator to view this page", "Admin needed!", JOptionPane.WARNING_MESSAGE);
-            response.sendRedirect("");
+            response.sendRedirect(request.getContextPath());
             return false;
         }
         else {
