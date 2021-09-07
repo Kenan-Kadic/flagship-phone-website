@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FlagshipPhoneWebsiteApplication {
 
 	public static void main(String[] args) {
-
+		System.setProperty("java.awt.headless", "false");
 		SpringApplication.run(FlagshipPhoneWebsiteApplication.class, args);
 	}
 

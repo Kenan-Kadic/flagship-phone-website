@@ -11,6 +11,7 @@
     <table class="phone-listing">
         <tr th:each="phone : ${phones}">
             <td>
+               <br>
                <p>
                     Brand Name: 
                     <a th:text="${phone.brand.name}" th:remove="tag"></a>

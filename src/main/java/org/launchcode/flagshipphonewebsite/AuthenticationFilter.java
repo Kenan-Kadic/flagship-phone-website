@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
@@ -49,7 +50,8 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
             return false;
         }
         else if ((request.getRequestURI().startsWith("/admin")) && (!user.getUsertype().equals("admin"))) {
-            response.sendRedirect("/login");
+            JOptionPane.showMessageDialog(null, "Please log in as Administrator to view this page", "Admin needed!", JOptionPane.WARNING_MESSAGE);
+            response.sendRedirect("");
             return false;
         }
         else {
